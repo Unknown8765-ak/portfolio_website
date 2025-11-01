@@ -36,7 +36,3 @@ I enjoy creating modern, responsive, and user-friendly web applications.
 - Contact form integration  
 - Smooth navigation & animations  
 - Built with clean and reusable code  
-
----
-
-## 📁 Folder Structure
