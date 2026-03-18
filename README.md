@@ -18,15 +18,6 @@ I enjoy creating modern, responsive, and user-friendly web applications.
 - HTML5  
 - CSS3  
 - JavaScript  
-- React.js  
-
-**Backend:**  
-- Python  
-- Django  
-
-**Database:**  
-- MongoDB  
-
 ---
 
 ## ✨ Features
