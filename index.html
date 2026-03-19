@@ -29,15 +29,8 @@
   --accent-color: purple;
   --text: #e6f7ff;
 }
-
- *{box-sizing:border-box;margin:0;padding:0}
       html{scroll-behavior:smooth}
 
-      @keyframes bgShift{
-        0%{background-position:0% 0%,100% 100%,0% 0%}
-        50%{background-position:10% 20%,90% 80%,100% 100%}
-        100%{background-position:0% 0%,100% 100%,0% 0%}
-      }
 
 .light-mode {
   --bg-color: #ffffff;
@@ -71,9 +64,16 @@ nav {
   background-color: var(--card-bg);
 }
 
-nav .right ul{display:flex;gap:12px;align-items:center}
-      nav .right ul li{list-style:none}
-      nav .right ul li a{
+nav .right ul{
+    display:flex;
+    gap:12px;
+}
+      
+nav .right ul li{
+    list-style:none
+}
+      
+nav .right ul li a{
         text-decoration:none;
         font-weight:600;
         padding:6px 7px;
@@ -108,8 +108,7 @@ nav .right ul{display:flex;gap:12px;align-items:center}
 
 nav ul {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: flex-start;
 }
 
 nav ul li {
@@ -241,12 +240,6 @@ p {
   color: var(--accent-color);
 }
 
-.skillsBox{
-        display:grid;
-        grid-template-columns:repeat(3,1fr);
-        gap:18px;
-        padding:12px;
-      }
 
 .skillsBox {
   display: grid;
@@ -300,12 +293,6 @@ p {
   margin: 8px;
 }
 
-
-.projectsBox{
-        display:grid;
-        grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-        gap:22px;padding:12px;
-      }
 .project{
         background:var(--card);
         padding:20px;border-radius:14px;
@@ -371,16 +358,7 @@ p {
 }
 
 
-.view-btn {
-  display: inline-block;
-  background-color: var(--accent-color);
-  color: white;
-  padding: 8px 15px;
-  border-radius: 8px;
-  text-decoration: none;
-  font-weight: 600;
-  transition: background 0.3s ease, transform 0.2s ease;
-}
+
 
 .view-btn{
         display:inline-block;background:linear-gradient(90deg,var(--neon-magenta),var(--neon-purple));
@@ -416,13 +394,9 @@ p {
 
 
 @media (max-width: 768px) {
-  nav {
-    flex-direction: column;
-    height: auto;
-  }
-
-  nav ul {
-    margin-top: 10px;
+   nav{
+    flex-direction:row;
+    height:auto;
   }
 
   .first {
@@ -512,53 +486,7 @@ p {
   }
 }
 
-@media (max-width: 600px) { 
-  nav ul li a {
-    margin: 0 15px;
-    }
-  }
-@media (max-width: 600px) { 
-  .left {
-    font-size: 1.5rem;
-    margin: 30px 0px 8px 0px;
-    
-    }
-  }
-  @media (max-width: 600px) {
-  nav {
-    display: flex;
-    flex-wrap: wrap; 
-    justify-content: center;
-    align-items: center;
-    gap: 8px;
-    height: auto;
-    padding: 10px;
-  }
 
-  nav ul {
-    display: flex;
-    flex-wrap: wrap; 
-    justify-content: center;
-    align-items: center;
-    margin: 0;
-    padding: 0;
-  }
-
-  nav ul li {
-    margin: 5px 8px;
-  }
-
-  nav ul li a {
-    font-size: 0.9rem;
-    margin: 0;
-  }
-
-  #modeToggle {
-    font-size: 0.9rem;
-    padding: 6px 12px;
-    margin-left: 10px;
-  }
-}
 
 .contact {
     margin: 28px 24px;
@@ -684,14 +612,6 @@ ease;
     width: fit-content;
 }
 
-footer {
-      background: var(--card-bg);
-  color: purple;
-  text-align: center;
-  padding: 20px;
-  font-size: 0.9rem;
-}
-
 footer i,
 footer span,
 footer p {
@@ -777,7 +697,7 @@ footer {
     text-align: center;
   }
 
-  }
+  
   .contact-left .email{
     text-align: center;
   }
@@ -786,7 +706,7 @@ footer {
   }
   .contact-right {
     width: 100%;
-  }
+  }}
 
   .btn{
     width: 70%;
@@ -881,31 +801,93 @@ footer {
   font-weight: bold;
 
 }
+/* hamburger */
 
+.menu-btn{
+font-size:28px;
+cursor:pointer;
+display:none;
+color:var(--text-color);
+margin-left:auto;
+}
+
+/* mobile navbar */
+@media(max-width:768px){
+
+.menu-btn{
+display:block;
+margin-left:auto;
+}
+
+.right{
+position:absolute;
+top:80px;
+left:0;
+width:100%;
+background:var(--card-bg);
+flex-direction:column;
+max-height:0;
+overflow:hidden;
+transition:max-height 0.3s ease;
+z-index:999;
+border-top:1px solid rgba(255,255,255,0.05);
+}
+
+.right.active{
+max-height:400px;
+}
+
+.right ul{
+flex-direction:column;
+align-items:flex-start;
+padding:20px;
+width:100%;
+}
+
+.right ul li{
+width:100%;
+margin:10px 0;
+}
+
+.right ul li a{
+display:block;
+width:100%;
+}
+
+}
+#home,#about,#skills,#projects,#contact{
+scroll-margin-top:90px;
+}
     </style>
 </head>
 <body>
     <header>
         <nav>
-            <div class="left">
-                <span class="purple">Amit Portfolio</span>
-            </div>
-            <div class="right">
-                <ul>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#skills">Skills</a></li>
-                    <li><a href="#projects">Projects</a></li>
-                    <li><a href="#contact">Contact Me</a></li>
-                </ul>
-                
-            </div>
-            <button id="modeToggle">🌙 Dark&nbsp;
-</button>
-        </nav>
+
+<div class="left">
+<span class="purple">Amit Portfolio</span>
+</div>
+
+<!-- Hamburger -->
+<div class="menu-btn" id="menuBtn">
+â˜°
+</div>
+
+<div class="right" id="navLinks">
+    <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact Me</a></li>
+        <li><button id="modeToggle">ðŸŒ™ Dark</button></li>
+    </ul>
+</div>
+
+</nav>
     </header>
     <main>
-        <section class="first" id="main">
+        <section class="first" id="home">
             <div class="leftSection">Hello, I'm <span class="purple"> Amit Maurya </span> From Lucknow.
             <br><br><div>And I'm a <span class="purple" id="element"></span></div>
             </div>
@@ -916,9 +898,9 @@ footer {
 
         <hr>
 
-        <section class="second" id="about">
-            <div class="about">About Me</div>
-            <p> I'm Amit Maurya, currently pursuing a Bachelor of Technology (B.tech) at Dr. APJ Abdul Kalam Technical University (AKTU), with a strong passion for becoming a Software Engineer.<br><br>
+<section class="second" id="about">
+    <div class="about">About Me</div>
+<p> I'm Amit Maurya, currently pursuing a Bachelor of Technology (B.tech) at Dr. APJ Abdul Kalam Technical University (AKTU), with a strong passion for becoming a Software Engineer.<br><br>
 
 I have hands-on experience in Python programming and full-stack web development using the MERN stack (MongoDB, Express.js, React.js, Node.js). <br><br>I enjoy designing responsive, user-friendly applications and solving real-world problems through code. 
 I have worked on Frontend Technologies (HTML5, CSS3, BootStraps, Javascript, Python and other PY libraries) and Backend Technologies (Django and Node.js) for almost a year and had done several projects. <br><br>
@@ -947,12 +929,12 @@ Aspiring for a challenging career in Software Development as to use my learned s
             </div>
             <div class="javascript">
                 <img src="https://static.vecteezy.com/system/resources/previews/027/127/463/original/javascript-logo-javascript-icon-transparent-free-png.png" alt="">
-                <div>I use JavaScript to add interactivity and dynamic functionality to my websites. I’m comfortable working with DOM manipulation, event handling, and API integration to create smooth user experiences.</div>
+                <div>I use JavaScript to add interactivity and dynamic functionality to my websites. Iâ€™m comfortable working with DOM manipulation, event handling, and API integration to create smooth user experiences.</div>
                 
             </div>
             <div class="php">
                 <img src="https://tse2.mm.bing.net/th/id/OIP.Lh2UX3vO-iJnztizWQrn3AHaD4?cb=12ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3" alt="">
-                <div>I use PHP to develop dynamic and data-driven web applications. I’m familiar with handling form data, server-side logic, and integrating databases to create functional and scalable websites.</div>
+                <div>I use PHP to develop dynamic and data-driven web applications. Iâ€™m familiar with handling form data, server-side logic, and integrating databases to create functional and scalable websites.</div>
             </div>
             <div class="python">
                 <img src="https://logodix.com/logo/729331.png" alt="">
@@ -960,11 +942,11 @@ Aspiring for a challenging career in Software Development as to use my learned s
             </div>
             <div class="Django">
                 <img src="https://www.vhv.rs/dpng/d/208-2081416_django-development-png-transparent-django-logo-png-download.png" alt="">
-                <div>I work with Django to build secure and maintainable backend systems. I can manage models, views, and templates efficiently, and use Django’s features to speed up development and ensure reliability.</div>
+                <div>I work with Django to build secure and maintainable backend systems. I can manage models, views, and templates efficiently, and use Djangoâ€™s features to speed up development and ensure reliability.</div>
             </div>
             <div class="mongodb" style="margin-bottom: 10px;">
                 <img src="https://tse2.mm.bing.net/th/id/OIP.AoFmhuVcQWFwCx4G2ZnuJQHaIq?cb=12ucfimg=1&w=500&h=585&rs=1&pid=ImgDetMain&o=7&rm=3" alt="">
-                <div>I use MongoDB as my database solution for handling large and flexible datasets. I’m comfortable performing CRUD operations, designing schemas, and integrating MongoDB with Node.js for full-stack applications.</div>
+                <div>I use MongoDB as my database solution for handling large and flexible datasets. Iâ€™m comfortable performing CRUD operations, designing schemas, and integrating MongoDB with Node.js for full-stack applications.</div>
             </div>
         </div>
         <hr>
@@ -978,7 +960,7 @@ Aspiring for a challenging career in Software Development as to use my learned s
                 <div><strong>ChatBot</strong></div><br>
                 A smart AI-based chatbot built using JavaScript and Node.js that can respond to user queries in real-time. Integrated with APIs for enhanced functionality.
                 <br><br>
-                <a href="https://github.com/Unknown8765-ak/New_ChatBot" class="view-btn">🔗 View Project</a>
+                <a href="https://github.com/Unknown8765-ak/New_ChatBot" class="view-btn">ðŸ”— View Project</a>
             </div>
         </div>
         <div class="project">
@@ -987,7 +969,7 @@ Aspiring for a challenging career in Software Development as to use my learned s
                 This project is a basic Netflix Clone designed using HTML and CSS for the frontend, with PHP as the backend and MySQL as the database.
 Which is a simple movie streaming platform interface similar to Netflix.
                 <br><br>
-                <a href="https://github.com/Unknown8765-ak/Netflex_clone" class="view-btn" target="_blank">🔗 View Project</a>
+                <a href="https://github.com/Unknown8765-ak/Netflex_clone" class="view-btn" target="_blank">ðŸ”— View Project</a>
             </div>
         </div>
         <div class="project">
@@ -995,15 +977,15 @@ Which is a simple movie streaming platform interface similar to Netflix.
                 <div><strong>YouTube Backend</strong></div><br>
                 Backend project built using Node.js, Express, and MongoDB to handle video uploads, comments, and user authentication similar to YouTube.
                 <br><br>
-                <a href="https://github.com/Unknown8765-ak/youtube_backend" class="view-btn" target="_blank">🔗 View Project</a>
+                <a href="https://github.com/Unknown8765-ak/youtube_backend" class="view-btn" target="_blank">ðŸ”— View Project</a>
             </div>
         </div>
         <div class="project">
             <div>
                 <div><strong>Django Basic Project</strong></div><br>
-                A Django web app demonstrating user authentication, CRUD operations, and responsive templates using Django’s built-in tools.
+                A Django web app demonstrating user authentication, CRUD operations, and responsive templates using Djangoâ€™s built-in tools.
                 <br><br>
-                <a href="https://github.com/Unknown8765-ak/django" class="view-btn" >🔗 View Project</a>
+                <a href="https://github.com/Unknown8765-ak/django" class="view-btn" >ðŸ”— View Project</a>
             </div>
         </div>
     </div>
@@ -1017,10 +999,9 @@ Which is a simple movie streaming platform interface similar to Netflix.
         <h1>Contact Me</h1>
 
         <div class="social-icons">
-        </a>
           <a href="https://github.com/Unknown8765-ak">
             <img src="https://logos-world.net/wp-content/uploads/2020/11/GitHub-Logo.png" alt="" class="fab fa-twitter"></a>
-          <a href="https://www.instagram.com/unknown_student_8765/#">
+          <a href="https://www.instagram.com/unknown_student_sn/">
             <img src="https://tse2.mm.bing.net/th/id/OIP.gB0IPp1YXxDdds6X2cKocgHaHZ?cb=12ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3" alt="" class="fab fa-instagram" ></a>
           <a href="https://www.linkedin.com/in/amit-maurya-a14146397/">
             <img src="https://tse4.mm.bing.net/th/id/OIP.Cn9SAHCmTy8MEaixr8bqpAHaHa?cb=12ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3" alt="" class="fab fa-linkedin"></a>
@@ -1041,7 +1022,7 @@ Which is a simple movie streaming platform interface similar to Netflix.
   </section>
 
   <footer>
-    <p>Copyright © Amit . ❤️ Made with Easy Tutorials</p>
+    <p>Copyright Â© Amit . â¤ï¸ Made with Easy Tutorials</p>
   </footer>
 
 
@@ -1057,9 +1038,9 @@ Which is a simple movie streaming platform interface similar to Netflix.
         toggleBtn.addEventListener('click', () => {
             document.body.classList.toggle('light-mode');
             if (document.body.classList.contains('light-mode')) {
-                toggleBtn.textContent = "🌞 Light";
+                toggleBtn.textContent = "ðŸŒž Light";
             } else {
-                toggleBtn.textContent = "🌙 Dark";
+                toggleBtn.textContent = "ðŸŒ™ Dark";
             }
         });
   </script>
@@ -1073,7 +1054,7 @@ Which is a simple movie streaming platform interface similar to Netflix.
     e.preventDefault()
     fetch(scriptURL, { method: 'POST', body: new FormData(form)})
       .then(response => {
-        msg.innerHTML = "Message send successfully👍"
+        msg.innerHTML = "Message send successfullyðŸ‘"
         setTimeout(function(){
           msg.innerHTML = ""
         },3000)
@@ -1081,6 +1062,29 @@ Which is a simple movie streaming platform interface similar to Netflix.
       })
       .catch(error => console.error('Error!', error.message))
   })
+  /* hamburger */
+
+const menuBtn = document.getElementById("menuBtn");
+const navLinks = document.getElementById("navLinks");
+
+menuBtn.addEventListener("click", () => {
+  navLinks.classList.toggle("active");
+
+  if(navLinks.classList.contains("active")){
+    menuBtn.innerText="âœ–";
+  }else{
+    menuBtn.innerText="â˜°";
+  }
+});
+
+const links = document.querySelectorAll(".right ul li a");
+
+links.forEach(link => {
+  link.addEventListener("click", () => {
+    navLinks.classList.remove("active");
+    menuBtn.innerText="â˜°";
+  });
+});
 </script>
 
 </body>
