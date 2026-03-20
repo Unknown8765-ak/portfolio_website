@@ -62,11 +62,13 @@ nav {
   border-bottom:1px solid rgba(255,255,255,0.03);
   backdrop-filter: blur(6px);
   background-color: var(--card-bg);
+  z-index: 999;
 }
 
 nav .right ul{
     display:flex;
     gap:12px;
+    margin-top: 15px;
 }
       
 nav .right ul li{
@@ -92,14 +94,17 @@ nav .right ul li a{
       }
       nav .right ul li a:hover{color:var(--neon-purple);transform:translateY(-2px)}
       nav .right ul li a:hover::after{width:100%}
+      nav .right ul.active{
+          display: flex;
+          gap: 0px;
+          margin-top: 0px;
+      }
 
       #modeToggle{
         cursor:pointer;
-        border-radius:20px;
         padding:8px 14px;
         border:1px solid rgba(255,255,255,0.04);
         background:linear-gradient(90deg, rgba(163, 140, 194, 0.9), rgba(0,255,240,0.08));
-        color:white;
         font-weight:700;
         box-shadow:0 6px 24px rgba(124,42,232,0.12);
       }
@@ -393,10 +398,15 @@ p {
 }
 
 
+  .first.active{
+    margin-top: 350px;
+  }
+
 @media (max-width: 768px) {
    nav{
     flex-direction:row;
     height:auto;
+  
   }
 
   .first {
@@ -855,9 +865,7 @@ width:100%;
 }
 
 }
-#home,#about,#skills,#projects,#contact{
-scroll-margin-top:90px;
-}
+
     </style>
 </head>
 <body>
@@ -870,7 +878,7 @@ scroll-margin-top:90px;
 
 <!-- Hamburger -->
 <div class="menu-btn" id="menuBtn">
-â˜°
+☰
 </div>
 
 <div class="right" id="navLinks">
@@ -880,7 +888,7 @@ scroll-margin-top:90px;
         <li><a href="#skills">Skills</a></li>
         <li><a href="#projects">Projects</a></li>
         <li><a href="#contact">Contact Me</a></li>
-        <li><button id="modeToggle">ðŸŒ™ Dark</button></li>
+        <li><button id="modeToggle">🌙 Dark</button></li>
     </ul>
 </div>
 
@@ -892,7 +900,7 @@ scroll-margin-top:90px;
             <br><br><div>And I'm a <span class="purple" id="element"></span></div>
             </div>
             <div class="rightSection">
-                <img src="./amit.png" class="admin">
+                <img src="https://cdn.pixabay.com/photo/2017/08/20/17/23/boy-2662495_1280.jpg" class="admin">
             </div>
         </section>
 
@@ -929,12 +937,12 @@ Aspiring for a challenging career in Software Development as to use my learned s
             </div>
             <div class="javascript">
                 <img src="https://static.vecteezy.com/system/resources/previews/027/127/463/original/javascript-logo-javascript-icon-transparent-free-png.png" alt="">
-                <div>I use JavaScript to add interactivity and dynamic functionality to my websites. Iâ€™m comfortable working with DOM manipulation, event handling, and API integration to create smooth user experiences.</div>
+                <div>I use JavaScript to add interactivity and dynamic functionality to my websites. I’m comfortable working with DOM manipulation, event handling, and API integration to create smooth user experiences.</div>
                 
             </div>
             <div class="php">
                 <img src="https://tse2.mm.bing.net/th/id/OIP.Lh2UX3vO-iJnztizWQrn3AHaD4?cb=12ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3" alt="">
-                <div>I use PHP to develop dynamic and data-driven web applications. Iâ€™m familiar with handling form data, server-side logic, and integrating databases to create functional and scalable websites.</div>
+                <div>I use PHP to develop dynamic and data-driven web applications. I’m familiar with handling form data, server-side logic, and integrating databases to create functional and scalable websites.</div>
             </div>
             <div class="python">
                 <img src="https://logodix.com/logo/729331.png" alt="">
@@ -942,11 +950,11 @@ Aspiring for a challenging career in Software Development as to use my learned s
             </div>
             <div class="Django">
                 <img src="https://www.vhv.rs/dpng/d/208-2081416_django-development-png-transparent-django-logo-png-download.png" alt="">
-                <div>I work with Django to build secure and maintainable backend systems. I can manage models, views, and templates efficiently, and use Djangoâ€™s features to speed up development and ensure reliability.</div>
+                <div>I work with Django to build secure and maintainable backend systems. I can manage models, views, and templates efficiently, and use Django’s features to speed up development and ensure reliability.</div>
             </div>
             <div class="mongodb" style="margin-bottom: 10px;">
                 <img src="https://tse2.mm.bing.net/th/id/OIP.AoFmhuVcQWFwCx4G2ZnuJQHaIq?cb=12ucfimg=1&w=500&h=585&rs=1&pid=ImgDetMain&o=7&rm=3" alt="">
-                <div>I use MongoDB as my database solution for handling large and flexible datasets. Iâ€™m comfortable performing CRUD operations, designing schemas, and integrating MongoDB with Node.js for full-stack applications.</div>
+                <div>I use MongoDB as my database solution for handling large and flexible datasets. I’m comfortable performing CRUD operations, designing schemas, and integrating MongoDB with Node.js for full-stack applications.</div>
             </div>
         </div>
         <hr>
@@ -960,7 +968,7 @@ Aspiring for a challenging career in Software Development as to use my learned s
                 <div><strong>ChatBot</strong></div><br>
                 A smart AI-based chatbot built using JavaScript and Node.js that can respond to user queries in real-time. Integrated with APIs for enhanced functionality.
                 <br><br>
-                <a href="https://github.com/Unknown8765-ak/New_ChatBot" class="view-btn">ðŸ”— View Project</a>
+                <a href="https://github.com/Unknown8765-ak/New_ChatBot" class="view-btn">🔗 View Project</a>
             </div>
         </div>
         <div class="project">
@@ -969,7 +977,7 @@ Aspiring for a challenging career in Software Development as to use my learned s
                 This project is a basic Netflix Clone designed using HTML and CSS for the frontend, with PHP as the backend and MySQL as the database.
 Which is a simple movie streaming platform interface similar to Netflix.
                 <br><br>
-                <a href="https://github.com/Unknown8765-ak/Netflex_clone" class="view-btn" target="_blank">ðŸ”— View Project</a>
+                <a href="https://github.com/Unknown8765-ak/Netflex_clone" class="view-btn" target="_blank">🔗 View Project</a>
             </div>
         </div>
         <div class="project">
@@ -977,15 +985,15 @@ Which is a simple movie streaming platform interface similar to Netflix.
                 <div><strong>YouTube Backend</strong></div><br>
                 Backend project built using Node.js, Express, and MongoDB to handle video uploads, comments, and user authentication similar to YouTube.
                 <br><br>
-                <a href="https://github.com/Unknown8765-ak/youtube_backend" class="view-btn" target="_blank">ðŸ”— View Project</a>
+                <a href="https://github.com/Unknown8765-ak/youtube_backend" class="view-btn" target="_blank">🔗 View Project</a>
             </div>
         </div>
         <div class="project">
             <div>
                 <div><strong>Django Basic Project</strong></div><br>
-                A Django web app demonstrating user authentication, CRUD operations, and responsive templates using Djangoâ€™s built-in tools.
+                A Django web app demonstrating user authentication, CRUD operations, and responsive templates using Django’s built-in tools.
                 <br><br>
-                <a href="https://github.com/Unknown8765-ak/django" class="view-btn" >ðŸ”— View Project</a>
+                <a href="https://github.com/Unknown8765-ak/django" class="view-btn" >🔗 View Project</a>
             </div>
         </div>
     </div>
@@ -1000,7 +1008,7 @@ Which is a simple movie streaming platform interface similar to Netflix.
 
         <div class="social-icons">
           <a href="https://github.com/Unknown8765-ak">
-            <img src="https://share.google/ABi06VRbTFqN2QZ9V" alt="" class="fab fa-twitter"></a>
+            <img src="https://toppng.com/uploads/preview/github-logo-png-116597801283u53z2isby.png" alt="" class="fab fa-twitter"></a>
           <a href="https://www.instagram.com/unknown_student_sn/">
             <img src="https://tse2.mm.bing.net/th/id/OIP.gB0IPp1YXxDdds6X2cKocgHaHZ?cb=12ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3" alt="" class="fab fa-instagram" ></a>
           <a href="https://www.linkedin.com/in/amit-maurya-a14146397/">
@@ -1022,7 +1030,7 @@ Which is a simple movie streaming platform interface similar to Netflix.
   </section>
 
   <footer>
-    <p>Copyright Â© Amit . â¤ï¸ Made with Easy Tutorials</p>
+    <p>Copyright © Amit . ❤️ Made with Easy Tutorials</p>
   </footer>
 
 
@@ -1038,9 +1046,9 @@ Which is a simple movie streaming platform interface similar to Netflix.
         toggleBtn.addEventListener('click', () => {
             document.body.classList.toggle('light-mode');
             if (document.body.classList.contains('light-mode')) {
-                toggleBtn.textContent = "ðŸŒž Light";
+                toggleBtn.textContent = "🌞 Light";
             } else {
-                toggleBtn.textContent = "ðŸŒ™ Dark";
+                toggleBtn.textContent = "🌙 Dark";
             }
         });
   </script>
@@ -1054,7 +1062,7 @@ Which is a simple movie streaming platform interface similar to Netflix.
     e.preventDefault()
     fetch(scriptURL, { method: 'POST', body: new FormData(form)})
       .then(response => {
-        msg.innerHTML = "Message send successfullyðŸ‘"
+        msg.innerHTML = "Message send successfully👍"
         setTimeout(function(){
           msg.innerHTML = ""
         },3000)
@@ -1071,9 +1079,9 @@ menuBtn.addEventListener("click", () => {
   navLinks.classList.toggle("active");
 
   if(navLinks.classList.contains("active")){
-    menuBtn.innerText="âœ–";
+    menuBtn.innerText="✖";
   }else{
-    menuBtn.innerText="â˜°";
+    menuBtn.innerText="☰";
   }
 });
 
@@ -1082,9 +1090,21 @@ const links = document.querySelectorAll(".right ul li a");
 links.forEach(link => {
   link.addEventListener("click", () => {
     navLinks.classList.remove("active");
-    menuBtn.innerText="â˜°";
+    menuBtn.innerText="☰";
   });
 });
+
+document.getElementById("menuBtn").onclick = function(){
+
+  if (window.matchMedia("(max-width:768px)").matches){
+
+    document.querySelector(".first").classList.toggle("active");
+    document.querySelector("nav .right ul").classList.toggle("active");
+
+  }
+
+}
+
 </script>
 
 </body>
