@@ -1075,36 +1075,35 @@ Which is a simple movie streaming platform interface similar to Netflix.
 
 const menuBtn = document.getElementById("menuBtn");
 const navLinks = document.getElementById("navLinks");
+const firstSection = document.querySelector(".first");
+const navUl = document.querySelector("nav .right ul");
 
 menuBtn.addEventListener("click", () => {
-  navLinks.classList.toggle("active");
 
-  if(navLinks.classList.contains("active")){
-    menuBtn.innerText="✖";
-  }else{
-    menuBtn.innerText="☰";
+  if (window.innerWidth <= 768) {
+
+    navLinks.classList.toggle("active");
+    firstSection.classList.toggle("active");
+    navUl.classList.toggle("active");
+    if(navLinks.classList.contains("active")){
+      menuBtn.innerText="✖";
+    }else{
+      menuBtn.innerText="☰";
+    }
   }
 });
-
 const links = document.querySelectorAll(".right ul li a");
 
 links.forEach(link => {
   link.addEventListener("click", () => {
+
     navLinks.classList.remove("active");
+    firstSection.classList.remove("active");
+    navUl.classList.remove("active");
+
     menuBtn.innerText="☰";
   });
 });
-
-document.getElementById("menuBtn").onclick = function(){
-
-  if (window.matchMedia("(max-width:768px)").matches){
-
-    document.querySelector(".first").classList.toggle("active");
-    document.querySelector("nav .right ul").classList.toggle("active");
-
-  }
-
-}
 
 </script>
 
